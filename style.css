@@ -1,5 +1,5 @@
 .container {
-  background-image: url(./image/Background.jpeg);
+  background-image: url(./image/Background.png);
   background-repeat: no-repeat;
   background-size: cover;
   border: 2px solid #f8dad0;
@@ -12,30 +12,18 @@
 .nav-pills .nav-link.active {
   color: yellow !important;
 }
-
-.salary_title {
-  font-size: 32px;
-  color: white;
-  margin-bottom: 8px;
+/* Bài tập 1 */
+form .form-select-lg {
+  font-size: 1rem !important;
+  padding: 6px 12px !important;
+  margin-top: 1.5rem !important;
 }
-.average_title {
-  font-size: 32px;
-  color: white;
-  margin-bottom: 8px;
+#formTinhTienCap .form-select-lg {
+  margin-top: 0 !important;
 }
-.money_title {
+h2 {
   font-size: 32px;
-  color: white;
+  color: red !important;
   margin-bottom: 8px;
-}
-.rectangle_title {
-  font-size: 32px;
-  color: white;
-  margin-bottom: 8px;
-}
-
-.sum_title {
-  font-size: 32px;
-  color: white;
-  margin-bottom: 8px;
+  text-transform: uppercase;
 }
