@@ -1,254 +1,117 @@
-// BÀI 1 - QUẢN LÝ SINH VIÊN
+/// BÀI 1 - TÍNH TIỀN LƯƠNG NHÂN VIÊN
 // Sơ đồ 3 khối
 /**
- * Đầu vào: điểm chuẩn, điểm khu vực, điểm đối tượng, điểm từng môn
+ * Đầu vào: Lương 1 ngày, Số ngày làm
  *
  * Các bước xử lí:
- * => thí sinh trúng tuyển: diemTongKet >= diemChuan && diemMonThu1, diemMonThu2, diemMonThu3 != 0
- * diemTong = (diemMonThu1 + diemMonThu2 + diemMonThu3) + diemUuTien;
- * diemUuTien = diemKhuVuc + diemDoiTuong
+ * =>Công thức tính lương: lương 1 ngày * số ngày làm
  *
- * Đầu ra: thí sinh đậu hay rớt và tổng số điểm đạt được
+ * Đầu ra: tiền lương nhân viên
  *
  */
-function diemKhuVuc(khuVuc) {
-  switch (khuVuc) {
-    case "A":
-      return 2;
-    case "B":
-      return 1;
-    case "C":
-      return 0.5;
-  }
-}
-function diemDoiTuong(doiTuong) {
-  switch (doiTuong) {
-    case 1:
-      return 2.5;
-    case 2:
-      return 1.5;
-    case 3:
-      return 1;
-  }
-}
-document.getElementById("btnKetQua").onclick = function () {
-  let diemChuan = document.getElementById("diemChuan").value * 1;
-  let khuVuc = document.getElementById("diemKhuVuc").value * 1;
-  let doiTuong = document.getElementById("diemDoiTuong").value * 1;
-  let diemMonThu1 = document.getElementById("diemMonThu1").value * 1;
-  let diemMonThu2 = document.getElementById("diemMonThu2").value * 1;
-  let diemMonThu3 = document.getElementById("diemMonThu3").value * 1;
-  let diemUuTien = khuVuc + doiTuong;
-  let tongDiem = diemMonThu1 + diemMonThu2 + diemMonThu3 + diemUuTien;
-
-  if (
-    tongDiem >= diemChuan &&
-    diemMonThu1 > 0 &&
-    diemMonThu2 > 0 &&
-    diemMonThu3 > 0
-  ) {
-    document.querySelector(".ketQua").innerHTML =
-      "Thí sinh đã đậu. Tổng điểm: " + tongDiem;
-  } else if (
-    (tongDiem >= diemChuan && diemMonThu1 <= 0) ||
-    diemMonThu2 <= 0 ||
-    diemMonThu3 <= 0
-  ) {
-    document.querySelector(".ketQua").innerHTML =
-      "Thí sinh đã rớt. Do có điểm nhỏ hơn hoặc bằng 0";
-  } else {
-    document.querySelector(".ketQua").innerHTML =
-      "Thí sinh đã rớt. Tổng điểm: " + tongDiem;
-  }
-};
-
-// Bài tập 2: Tính tiền điện
-// Sơ đồ 3 khối
-/**
- * Đầu vào: họ tên người dùng, số kw
- *
- * Các bước xử lí:
- * => 50kw đầu = soKw * 500d/kw
- * => 50kw kế = 50 * 500d/kw + (soKw-50)*650
- * => 100kw kế = 50 * 500 d/kw + 50 * 650d/kw + (soKw-100)*850
- * => 150kw kế = 50 * 500 d/kw + 50 * 650d/kw + 100 * 850 + (soKw-200)*1100
- * => còn lại = 50 * 500 d/kw + 50 * 650d/kw + 100 * 850 + 150 * 1100 + (soKw-350)*1300
- *
- * Đầu ra: tiền phải trả
- *
- */
-
-const tu50KwDau = 500;
-const tu50kwKe = 650;
-const tu100KwKe = 850;
-const tu150KwKe = 1100;
-const tukwConLai = 1300;
-
-document.querySelector("#btnTinhTienDien").onclick = function () {
-  let nhapHoTen = document.getElementById("nhapHoTen").value;
-  let soKw = Number(document.getElementById("soKw").value);
-  let tongTien = "";
-  if (soKw == "") {
-    alert("Số kw không hợp lệ! Vui lòng nhập lại");
-  }
-  if (soKw <= 50) {
-    tongTien = tu50KwDau * soKw;
-  } else if (50 < soKw && soKw <= 100) {
-    tongTien = 50 * tu50KwDau + (soKw - 50) * tu50kwKe;
-  } else if (100 < soKw && soKw <= 200) {
-    tongTien = 50 * tu50KwDau + 50 * tu50kwKe + (soKw - 100) * tu100KwKe;
-  } else if (200 < soKw && soKw <= 350) {
-    tongTien =
-      50 * tu50KwDau +
-      50 * tu50kwKe +
-      100 * tu100KwKe +
-      (soKw - 200) * tu150KwKe;
-  } else {
-    tongTien =
-      50 * tu50KwDau +
-      50 * tu50kwKe +
-      100 * tu100KwKe +
-      150 * tu150KwKe +
-      (soKw - 350) * tukwConLai;
-  }
-  document.getElementById("ketQuaTinhTienDien").innerHTML =
-    "Họ tên: " +
-    nhapHoTen +
-    "; Tiền điện: " +
-    tongTien.toLocaleString("vi", {
+document.querySelector("#btnTinhLuong").onclick = function () {
+  const luongMotNgay = "100000";
+  let soNgayLam = document.getElementById("soNgayLam").value * 1;
+  let tienLuongNhanVien = luongMotNgay * soNgayLam;
+  document.querySelector(".ketQuaLuong").innerHTML =
+    "👉 Tiền lương tháng này của bạn: " +
+    tienLuongNhanVien.toLocaleString("vi", {
       style: "currency",
       currency: "VND",
     });
 };
 
-// Bài tập 3: Tính thuế thu nhập cá nhân
+// BÀI 2 - TÍNH GIÁ TRỊ TRUNG BÌNH
 // Sơ đồ 3 khối
 /**
- * Đầu vào: họ tên, tổng thu nhập năm, số người phụ thuộc
+ * Đầu vào: Giá trị số thứ 1, số thứ 2, số thứ 3, số thứ 4, số thứ 5
  *
- * Các bước xử lí:
- * => thu nhập chịu thuế = tổng thu nhập năm - 4tr -số người phụ thuộc * 1.6tr
- * => thuế thu nhập cá nhân = thu nhập chịu thuế * thuế xuất tương ứng
+ * Các bước xử lí
+ * =>Giá trị trung bình: (số thứ 1 + số thứ 2 + số thứ 3 + số thứ 4 + số thứ 5)/5
  *
- *
- * Đầu ra: thuế thu nhập cá nhân
- *
+ * Đầu ra: giá trị trung bình của 5 số
  */
 
-const thueXuatDen60 = 0.05;
-const thueXuatTren60Den120 = 0.1;
-const thueXuatTren120Den210 = 0.15;
-const thueXuatTren210Den384 = 0.2;
-const thueXuatTren384Den624 = 0.25;
-const thueXuatTren624Den960 = 0.3;
-const thueXuatTren960 = 0.35;
+document.getElementById("btnGiaTriTrungBinh").onclick = function () {
+  let soThuNhat = Number(document.getElementById("soThuNhat").value);
+  let soThuHai = Number(document.getElementById("soThuHai").value);
+  let soThuBa = Number(document.getElementById("soThuBa").value);
+  let soThuTu = Number(document.getElementById("soThuTu").value);
+  let soThuNam = Number(document.getElementById("soThuNam").value);
+  let giaTriTrungBinh =
+    (soThuNhat + soThuHai + soThuBa + soThuTu + soThuNam) / 5;
+  document.getElementById("ketQuaTrungBinh").innerHTML =
+    "👉 Giá trị trung bình: " + giaTriTrungBinh;
+};
 
-document.getElementById("btnTinhTienThueCaNhan").onclick = function () {
-  let hoTen = document.getElementById("hoTen").value;
-  let tongThuNhapNam = document.getElementById("tongThuNhapNam").value;
-  let soNguoiPhuThuoc = Number(
-    document.getElementById("soNguoiPhuThuoc").value
-  );
-  let thuNhapChiuThue = tongThuNhapNam - 4000000 - soNguoiPhuThuoc * 1600000;
-  let tienThueThuNhapCaNhan = "";
-  if (tongThuNhapNam == "") {
-    alert("Số tiền thu nhập không hợp lệ! Vui lòng nhập lại");
-  }
-  if (tongThuNhapNam == "") {
-    tienThueThuNhapCaNhan = 0;
-  } else if (thuNhapChiuThue <= 60000000) {
-    tienThueThuNhapCaNhan = thuNhapChiuThue * thueXuatDen60;
-  } else if (60000000 < thuNhapChiuThue && thuNhapChiuThue <= 120000000) {
-    tienThueThuNhapCaNhan = thuNhapChiuThue * thueXuatTren60Den120;
-  } else if (120000000 < thuNhapChiuThue && thuNhapChiuThue <= 210000000) {
-    tienThueThuNhapCaNhan = thuNhapChiuThue * thueXuatTren120Den210;
-  } else if (210000000 < thuNhapChiuThue && thuNhapChiuThue <= 384000000) {
-    tienThueThuNhapCaNhan = thuNhapChiuThue * thueXuatTren210Den384;
-  } else if (384000000 < thuNhapChiuThue && thuNhapChiuThue <= 624000000) {
-    tienThueThuNhapCaNhan = thuNhapChiuThue * thueXuatTren384Den624;
-  } else if (624000000 < thuNhapChiuThue && thuNhapChiuThue <= 960000000) {
-    tienThueThuNhapCaNhan = thuNhapChiuThue * thueXuatTren624Den960;
-  } else {
-    tienThueThuNhapCaNhan = thuNhapChiuThue * thueXuatTren960;
-  }
-  document.getElementById("ketQuaTienThue").innerHTML =
-    "Họ tên: " +
-    hoTen +
-    "; Tiền thuế thu nhập cá nhân: " +
-    tienThueThuNhapCaNhan.toLocaleString("vi", {
+// BÀI 3 - QUY ĐỔI TIỀN
+/**
+ * Đầu vào: Giá đô hiện nay, số tiền đô
+ *
+ * Các bước xử lí
+ * =>Giá trị quy đổi: giá đô hiện nay * số tiền đô
+ *
+ * Đầu ra: số tiền sau khi quy đổi VNĐ
+ */
+
+document.querySelector("#btnGiaTriQuyDoi").onclick = function () {
+  const giaUSDHienNay = "23500";
+  let soTienQuyDoi = document.querySelector("#soTienQuyDoi").value * 1;
+  let quyDoiTien = giaUSDHienNay * soTienQuyDoi;
+  new Intl.NumberFormat("vn-VN").format(quyDoiTien);
+  document.querySelector("#ketQuaQuyDoi").innerHTML =
+    "Số tiền quy đổi sang VND: " +
+    quyDoiTien.toLocaleString("vi", {
       style: "currency",
       currency: "VND",
     });
 };
 
-// Bài tập 4: Tính tiền cáp
+// BÀI 4 - TÍNH DIỆN TÍCH, CHU VI HÌNH CHỮ NHẬT
 // Sơ đồ 3 khối
 /**
- * Đầu vào: loại khách hàng, mã khách hàng, số kênh cao cấp, số kết nối (đối với doanh nghiệp)
- *
- * Các bước xử lí:
- * => Hoá đơn tiền cáp đối với nhà dân = phí xử lý hoá đơn + phí dịch cở bản + số kênh * tiền kênh cao cấp
- * => Hoá đơn tiền cáp đối với doanh nghiệp = phí xử lý hoá đơn + phí dịch cở bản + số kênh * tiền kênh cao cấp + số kết nối * phí dịch vụ cơ bản
+ * Đầu vào: Hình chữ nhật, chiều dài, chiều rộng
  *
  *
- * Đầu ra: hoá đơn khách hàng
+ * Các bước xử lý:
+ * => Công thức diện tích= dài * rộng
+ * => Công thức tính chu vi = (dài + rộng) * 2
+ *
+ *
+ * Đầu ra: Diện tích và chu vi của hình chữ nhật
  *
  */
+document.querySelector("#btnTinhKichThuoc").onclick = function () {
+  let chieuDai = Number(document.querySelector("#chieuDai").value);
+  let chieuRong = Number(document.querySelector("#chieuRong").value);
+  let chuVi = (chieuDai + chieuRong) * 2;
+  let dienTich = chieuDai * chieuRong;
+  // document.querySelector("#ketQuaTinh").innerHTML =
+  //   "Chu vi: " + chuVi + "Diện tích: " + dienTich;
+  document.querySelector("#ketQuaTinh").innerHTML =
+    "Chu vi: " + chuVi + "; Diện tích: " + dienTich;
+};
 
-const phiXuLyHoaDonNhaDan = 4.5;
-const phiDichVuCoBanNhaDan = 20.5;
-const phi1KenhCaoCapNhaDan = 7.5;
-const phiXuLyHoaDonDoanhNghiep = 15;
-const phi1KenhCaoCapDoanhNghiep = 50;
-const phiDichVuCoBan10KetNoiDauDoanhNghiep = 75;
+// BÀI 5 - TÍNH TỔNG 2 KÝ SỐ
+/**
+ *
+ * Đầu vào: số có 2 chữ số
+ *
+ * Các bước xử lí
+ * => Tổng 2 ký số = số hàng chục + số hàng đơn vị
+ *
+ * Đầu ra: tổng 2 ký số vừa nhập
+ */
 
-document.getElementById("loaiKhachHang").onchange = function () {
-  let loaiKhachHang = document.getElementById("loaiKhachHang").value;
-  let soKetNoi = document.getElementById("soKetNoi");
-  if (loaiKhachHang === "Doanh Nghiệp") {
-    soKetNoi.disabled = false;
-    soKetNoi.style.display = "block";
+document.getElementById("btnTongHaiKySo").onclick = function () {
+  let soCoHaiChuSo = document.getElementById("soCoHaiChuSo").value * 1;
+  let soHangDonVi = soCoHaiChuSo % 10;
+  let soHangChuc = Math.floor(soCoHaiChuSo / 10);
+  if (soCoHaiChuSo > 10 && soCoHaiChuSo < 100) {
+    let tongKySo = soHangChuc + soHangDonVi;
+    document.getElementById("ketQuaTong").innerHTML =
+      "Tổng 2 ký số của số vừa nhập là: " + tongKySo;
   } else {
-    soKetNoi.disabled = true;
-    soKetNoi.style.display = "none";
-    soKetNoi.value;
+    document.getElementById("ketQuaTong").innerHTML = "Vui lòng nhập lại !!!";
   }
 };
-function btnTinhTienCap() {
-  let soKetNoi = document.getElementById("soKetNoi").value * 1;
-  let soKenhCaoCap = document.getElementById("soKenhCaoCap").value * 1;
-  let phiThueKenhCaoCapDoanhNghiep = phi1KenhCaoCapDoanhNghiep * soKenhCaoCap;
-  let phiThueKenhCaoCapNhaDan = phi1KenhCaoCapNhaDan * soKenhCaoCap;
-  let loaiKhachHang = document.getElementById("loaiKhachHang").value;
-  let maKhachHang = document.getElementById("maKhachHang").value;
-  let tinhHoaDon = "";
-  if (loaiKhachHang == "") {
-    alert("Vui lòng chọn loại khách hàng");
-  }
-  if (loaiKhachHang === "Doanh Nghiệp" && soKetNoi > 10) {
-    tinhHoaDon =
-      phiXuLyHoaDonDoanhNghiep +
-      phiDichVuCoBan10KetNoiDauDoanhNghiep +
-      (soKetNoi - 10) * 5 +
-      phiThueKenhCaoCapDoanhNghiep;
-  } else if (loaiKhachHang === "Doanh Nghiệp" && soKetNoi < 10) {
-    tinhHoaDon =
-      phiXuLyHoaDonDoanhNghiep +
-      phiDichVuCoBan10KetNoiDauDoanhNghiep +
-      phiThueKenhCaoCapDoanhNghiep;
-  } else if (loaiKhachHang === "Nhà Dân") {
-    tinhHoaDon =
-      phiXuLyHoaDonNhaDan + phiDichVuCoBanNhaDan + phiThueKenhCaoCapNhaDan;
-  } else {
-    tinhHoaDon = 0;
-  }
-  console.log(tinhHoaDon);
-  document.getElementById("ketQuaTinhTienCap").innerHTML =
-    "Mã khách hàng: " +
-    maKhachHang +
-    "; Tiền cáp: " +
-    tinhHoaDon.toLocaleString("us", {
-      style: "currency",
-      currency: "USD",
-    });
-}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bài tập hàm</title>
+    <title>Bài tập JS Buổi 2-3</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -91,6 +91,18 @@
           >
             Bài 4
           </button>
+          <button
+            class="nav-link mb-2"
+            id="v-pills-settings-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-engineerings"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-engineerings"
+            aria-selected="false"
+          >
+            Bài 5
+          </button>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
           <div
@@ -100,100 +112,24 @@
             aria-labelledby="v-pills-home-tab"
             tabindex="0"
           >
-            <div class="exercise_1">
-              <h2>Quản lý tuyển sinh</h2>
+            <div class="salary_title">
+              <h2></h2>
+                Tiền lương nhân viên <i class="fa-solid fa-sack-dollar"></i>
+              </h2>
             </div>
-            <form action="" id="formTuyenSinh">
-              <div class="row">
-                <div class="col-4">
-                  <div class="mb-3">
-                    <label for="" class="form-label text-white"></label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      name=""
-                      id="diemChuan"
-                      aria-describedby="helpId"
-                      placeholder="Điểm chuẩn"
-                    />
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="mb-3">
-                    <select
-                      class="form-select form-select-lg"
-                      name=""
-                      id="diemKhuVuc"
-                    >
-                      <option value="0">Chọn khu vực</option>
-                      <option value="2">A</option>
-                      <option value="1">B</option>
-                      <option value="0.5">C</option>
-                    </select>
-                  </div>
-                  
-                </div>
-                <div class="col-4">
-                  <div class="mb-3">
-                    <select
-                      class="form-select form-select-lg"
-                      name=""
-                      id="diemDoiTuong"
-                    >
-                      <option value="0">Chọn đối tượng</option>
-                      <option value="2.5">1</option>
-                      <option value="1.5">2</option>
-                      <option value="1">3</option>
-                    </select>
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-4">
-                  <div class="mb-3">
-                    <label for="" class="form-label text-white"></label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      name=""
-                      id="diemMonThu1"
-                      aria-describedby="helpId"
-                      placeholder="Điểm môn thứ 1"
-                    />
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="mb-3">
-                    <label for="" class="form-label text-white"></label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      name=""
-                      id="diemMonThu2"
-                      aria-describedby="helpId"
-                      placeholder="Điểm môn thứ 2"
-                    />
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="mb-3">
-                    <label for="" class="form-label text-white"></label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      name=""
-                      id="diemMonThu3"
-                      aria-describedby="helpId"
-                      placeholder="Điểm môn thứ 3"
-                    />
-                  </div>
-                </div>
-              </div>
-            </form>
-            
-            <button class="btn btn-dark" id="btnKetQua">Kết quả</button>
-            <p class="bg-light text-dark p-2 rounded bg-opacity-75 mt-4 ketQua">👉 
+            <div class="mb-3">
+              <label for="" class="form-label text-white">Số ngày làm:</label>
+              <input
+                type="number"
+                class="form-control"
+                name=""
+                id="soNgayLam"
+                aria-describedby="helpId"
+                placeholder="Nhập số ngày làm"
+              />
+            </div>
+            <button class="btn btn-success" id="btnTinhLuong">Tính lương</button>
+            <p class="bg-danger text-white p-2 rounded bg-opacity-75 mt-4 ketQuaLuong">👉 
             </p>
           </div>
           <div
@@ -203,32 +139,69 @@
             aria-labelledby="v-pills-profile-tab"
             tabindex="0"
           >
-          <div class="exercise_2">
-            <h2>Tính tiền điện</h2>
+          <div class="average_title">
+            <h2></h2>
+              Giá trị trung bình của 5 số thực
+            </h2>
           </div>
           <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              name=""
-              id="nhapHoTen"
-              aria-describedby="helpId"
-              placeholder="Nhập họ tên"
-            />
-          </div>
-          <div class="mb-3">
+            <label for="" class="form-label text-white">Số thứ nhất:</label>
             <input
               type="number"
               class="form-control"
               name=""
-              id="soKw"
+              id="soThuNhat"
               aria-describedby="helpId"
-              placeholder="Nhập số kw"
+              placeholder="Nhập số thứ nhất"
             />
           </div>
-          <button class="btn btn-dark" id="btnTinhTienDien">Tính tiền điện</button>
-          <p class="bg-light text-dark p-2 rounded bg-opacity-75 mt-4" id="ketQuaTinhTienDien">👉 </p>
-        </div>
+          <div class="mb-3">
+            <label for="" class="form-label text-white">Số thứ hai:</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="soThuHai"
+              aria-describedby="helpId"
+              placeholder="Nhập số thứ hai"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label text-white">Số thứ ba:</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="soThuBa"
+              aria-describedby="helpId"
+              placeholder="Nhập số thứ ba"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label text-white">Số thứ tư:</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="soThuTu"
+              aria-describedby="helpId"
+              placeholder="Nhập số thứ tư"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label text-white">Số thứ năm:</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="soThuNam"
+              aria-describedby="helpId"
+              placeholder="Nhập số thứ nhất"
+            />
+          </div>
+          <button class="btn btn-success" id="btnGiaTriTrungBinh">Tính trung bình</button>
+          <p class="bg-danger text-white p-2 rounded bg-opacity-75 mt-4" id="ketQuaTrungBinh">👉 </p>
+          </div>
           <div
             class="tab-pane fade"
             id="v-pills-messages"
@@ -236,50 +209,24 @@
             aria-labelledby="v-pills-messages-tab"
             tabindex="0"
           >
-            <div class="exercise_3">
-             <h2>Tính thuế thu nhập cá nhân</h2>
+            <div class="money_title">
+             <h2></h2>
+              Quy đổi tiền
+             </h2>
             </div>
-            <div class="row">
-              <div class="col-4">
-                <div class="mb-3">
-                  <input
-                  type="text"
-                  class="form-control"
-                  name=""
-                  id="hoTen"
-                  aria-describedby="helpId"
-                  placeholder="Nhập họ tên"
-                />
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="mb-3">
-                  <input
-                  type="number"
-                  class="form-control"
-                  name=""
-                  id="tongThuNhapNam"
-                  aria-describedby="helpId"
-                  placeholder="Tổng thu nhập năm"
-                />
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="mb-3">
-                  <input
-                  type="number"
-                  class="form-control"
-                  name=""
-                  id="soNguoiPhuThuoc"
-                  aria-describedby="helpId"
-                  placeholder="Số người phụ thuộc"
-                />
-                </div>
-              </div>
+            <div class="mb-3">
+              <label for="" class="form-label text-white">Số tiền USD</label>
+              <input
+              type="number"
+              class="form-control"
+              name=""
+              id="soTienQuyDoi"
+              aria-describedby="helpId"
+              placeholder="Nhập số tiền USD"
+            />
             </div>
-            
-            <button class="btn btn-dark" id="btnTinhTienThueCaNhan">Tính Tiền Thuế</button>
-            <p class="bg-light text-dark p-2 rounded bg-opacity-75 mt-4" id="ketQuaTienThue">👉 </p>
+            <button class="btn btn-success" id="btnGiaTriQuyDoi">Quy đổi tiền</button>
+            <p class="bg-danger text-white p-2 rounded bg-opacity-75 mt-4" id="ketQuaQuyDoi">👉 </p>
           </div>
           <div
             class="tab-pane fade"
@@ -288,68 +235,63 @@
             aria-labelledby="v-pills-settings-tab"
             tabindex="0"
           >
-          <div class="exercise_4">
-            <h2>Tính tiền cáp</h2>
+          <div class="rectangle_title">
+            <h2></h2>
+             Tính diện tích, chu vi hình chữ nhật
+            </h2>
+           </div>
+           <div class="mb-3">
+             <label for="" class="form-label text-white">Chiều dài</label>
+             <input
+             type="number"
+             class="form-control"
+             name=""
+             id="chieuDai"
+             aria-describedby="helpId"
+             placeholder="Nhập chiều dài"
+           />
+           </div>
+           <div class="mb-3">
+            <label for="" class="form-label text-white">Chiều rộng</label>
+            <input
+            type="number"
+            class="form-control"
+            name=""
+            id="chieuRong"
+            aria-describedby="helpId"
+            placeholder="Nhập chiều rộng"
+          />
           </div>
-            
-              <form action="" id="formTinhTienCap">
-                <div class="row">
-                  <div class="col-4">
-                    <div class="mb-3">
-                      <select
-                        class="form-select form-select-lg"
-                        name=""
-                        id="loaiKhachHang"
-                      >
-                        <option value="">Chọn loại khách hàng</option>
-                        <option value="Nhà Dân">Nhà dân</option>
-                        <option value="Doanh Nghiệp">Doanh nghiệp</option>
-                      </select>
-                    </div>
-                    
-                  </div>
-                  <div class="col-4">
-                    <div class="mb-3">
-                      <input
-                      type="text"
-                      class="form-control"
-                      name=""
-                      id="maKhachHang"
-                      aria-describedby="helpId"
-                      placeholder="Nhập mã khách hàng"
-                    />
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="mb-3">
-                      <input
-                      type="number"
-                      class="form-control"
-                      name=""
-                      id="soKenhCaoCap"
-                      aria-describedby="helpId"
-                      placeholder="Số kênh cao cấp"
-                    />
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="mb-3">
-                      <input
-                      type="number"
-                      class="form-control"
-                      name=""
-                      id="soKetNoi"
-                      aria-describedby="helpId"
-                      placeholder="Số kết nối"
-                    />
-                    </div>
-                  </div>
-                </div>
-              </form>
-           <button onclick="btnTinhTienCap()" class="btn btn-dark" id="btnTinhTienCap">Tính tiền cáp</button>
-           <p class="bg-light text-dark p-2 rounded bg-opacity-75 mt-4" id="ketQuaTinhTienCap">👉 </p>
+           <button class="btn btn-success" id="btnTinhKichThuoc">Tính</button>
+           <p class="bg-danger text-white p-2 rounded bg-opacity-75 mt-4" id="ketQuaTinh">👉 </p>
           </div>
-        
+          <div
+            class="tab-pane fade"
+            id="v-pills-engineerings"
+            role="tabpanel"
+            aria-labelledby="v-pills-engineerings-tab"
+            tabindex="0"
+          >
+          <div class="sum_title">
+            <h2></h2>
+             Tính tổng 2 ký số
+            </h2>
+           </div>
+           <div class="mb-3">
+             <label for="" class="form-label text-white">Nhập số</label>
+             <input
+             type="number"
+             class="form-control"
+             name=""
+             id="soCoHaiChuSo"
+             aria-describedby="helpId"
+             placeholder="Nhập số có 2 chữ số"
+           />
+           </div>
+           <button class="btn btn-success" id="btnTongHaiKySo">Tính tổng</button>
+           <p class="bg-danger text-white p-2 rounded bg-opacity-75 mt-4" id="ketQuaTong">👉 </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
